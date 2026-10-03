@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Watch YapFlow · Don’t type. Just talk.</title>
+  <meta name="description" content="See YapFlow’s notch, local dictation, vocabulary, meeting capture, and recording playback in 45 seconds.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#080b10;color:#f7f9fc;font-family:system-ui,-apple-system,sans-serif}main{max-width:1320px;margin:auto;padding:32px 28px 48px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}a{color:inherit;text-decoration:none}.brand{display:flex;gap:12px;align-items:center;font-size:26px;font-weight:700;letter-spacing:-1px}.brand img{width:40px}header>a:last-child{color:#8ed5ff;font-size:16px}.player{position:relative;aspect-ratio:16/9;border:1px solid #263642;border-radius:18px;overflow:hidden;background:#080b10}video{display:block;width:100%;height:100%;object-fit:contain}.play{position:absolute;inset:0;border:0;background:transparent;cursor:pointer}.play span{position:absolute;right:30px;bottom:32px;background:#8ed5ff;color:#142e40;font-size:18px;font-weight:700;padding:15px 25px;border-radius:12px;box-shadow:0 8px 30px #0006}.play:focus-visible{outline:3px solid #8ed5ff;outline-offset:-5px}.play[hidden]{display:none}footer{display:flex;justify-content:space-between;gap:20px;margin-top:22px;color:#93a6b8;font-size:16px;line-height:1.5}footer strong{color:#eaf4fb;font-weight:500}footer a{color:#8ed5ff}@media(max-width:600px){main{padding:20px 14px}.brand{font-size:22px}footer{flex-direction:column}.play span{right:15px;bottom:15px;font-size:15px;padding:12px 18px}.player{border-radius:10px}}
+  </style>
+</head>
+<body><main>
+  <header><a class="brand" href="/"><img src="/yapflow-mark.svg" alt="">YapFlow</a><a href="/">Get YapFlow ↗</a></header>
+  <section class="player" aria-label="YapFlow launch film">
+    <video id="film" controls playsinline preload="metadata" poster="/launch-poster.png" aria-label="45-second YapFlow launch film"><source src="/yapflow-launch.mp4" type="video/mp4"></video>
+    <button class="play" id="play" aria-label="Play YapFlow film"><span>Play film ▶</span></button>
+  </section>
+  <footer><div><strong>Speak freely. Write clearly.</strong><br>Free · Open source · 100% local · Mac + Windows</div><a href="https://github.com/automatewithmarko/yapflow">Explore the source ↗</a></footer>
+</main><script>
+  const film=document.getElementById('film'),play=document.getElementById('play');
+  play.addEventListener('click',()=>{film.play().then(()=>{play.hidden=true}).catch(()=>{play.hidden=true;film.focus()})});
+  film.addEventListener('play',()=>{play.hidden=true});
+  film.addEventListener('ended',()=>{play.hidden=false});
+</script></body></html>

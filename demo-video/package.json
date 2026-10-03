@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "studio": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts YapFlowLaunch out/yapflow-demo.mp4 --codec=h264 --crf=16 --pixel-format=yuv420p"
+    "render": "remotion render src/index.ts YapFlowLaunch out/yapflow-launch.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p --browser-executable='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.359",

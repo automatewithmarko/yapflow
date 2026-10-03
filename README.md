@@ -26,12 +26,12 @@
 </p>
 
 <p align="center">
-  <a href="https://yapflow.app/yapflow-demo.mp4">
-    <img src="docs/media/demo-poster.png" alt="Watch the YapFlow demo" width="900">
+  <a href="https://yapflow.app/watch.html">
+    <img src="docs/media/launch-poster.png" alt="Watch the new 45-second YapFlow film" width="900">
   </a>
 </p>
 
-<p align="center"><a href="https://yapflow.app/yapflow-demo.mp4"><strong>▶ Play the 50-second YapFlow demo</strong></a></p>
+<p align="center"><a href="https://yapflow.app/watch.html"><strong>▶ Watch the new 45-second YapFlow film</strong></a></p>
 
 ## Your voice stays yours
 
@@ -56,6 +56,8 @@ YapFlow turns speech into polished text without sending recordings, transcripts,
     <td align="center"><strong>Capture meetings locally</strong></td>
   </tr>
 </table>
+
+Visuals above are illustrative frames from the launch film. The reproducible video source and asset notes are in [demo-video](demo-video/README.md).
 
 ## How it works
 
