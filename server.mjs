@@ -6,7 +6,7 @@ const port = Number(process.env.PORT || 3000);
 const root = resolve(process.cwd(), 'dist');
 const releaseRoot = resolve(process.cwd(), 'release-assets');
 const release = JSON.parse(readFileSync(join(process.cwd(), 'release.json'), 'utf8'));
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.dmg': 'application/x-apple-diskimage', '.exe': 'application/vnd.microsoft.portable-executable', '.gz': 'application/gzip', '.sig': 'text/plain; charset=utf-8', '.json': 'application/json; charset=utf-8' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.mp4': 'video/mp4', '.dmg': 'application/x-apple-diskimage', '.exe': 'application/vnd.microsoft.portable-executable', '.gz': 'application/gzip', '.sig': 'text/plain; charset=utf-8', '.json': 'application/json; charset=utf-8' };
 const publicUrl = (value, protocol, host) => /^https?:\/\//i.test(value) ? value : `${protocol}://${host}${value}`;
 const isInside = (base, candidate) => candidate === base || candidate.startsWith(`${base}${sep}`);
 
@@ -101,7 +101,29 @@ createServer((request, response) => {
   const relative = rawPath === '/' ? 'index.html' : rawPath.replace(/^\/+/, '');
   const requested = resolve(root, relative);
   const file = isInside(root, requested) && existsSync(requested) && statSync(requested).isFile() ? requested : join(root, 'index.html');
-  response.writeHead(200, { 'content-type': types[extname(file)] || 'application/octet-stream', 'cache-control': file.endsWith('index.html') ? 'no-cache' : 'public, max-age=31536000, immutable' });
+  const fileSize = statSync(file).size;
+  const contentType = types[extname(file)] || 'application/octet-stream';
+  const range = contentType === 'video/mp4' && request.headers.range?.match(/^bytes=(\d+)-(\d*)$/);
+  if (range) {
+    const start = Number(range[1]);
+    const end = range[2] ? Math.min(Number(range[2]), fileSize - 1) : fileSize - 1;
+    if (start >= fileSize || end < start) {
+      response.writeHead(416, { 'content-range': `bytes */${fileSize}` });
+      response.end();
+      return;
+    }
+    response.writeHead(206, {
+      'content-type': contentType,
+      'accept-ranges': 'bytes',
+      'content-range': `bytes ${start}-${end}/${fileSize}`,
+      'content-length': end - start + 1,
+      'cache-control': 'public, max-age=31536000, immutable'
+    });
+    if (request.method === 'HEAD') response.end();
+    else createReadStream(file, { start, end }).pipe(response);
+    return;
+  }
+  response.writeHead(200, { 'content-type': contentType, 'content-length': fileSize, ...(contentType === 'video/mp4' ? { 'accept-ranges': 'bytes' } : {}), 'cache-control': file.endsWith('index.html') ? 'no-cache' : 'public, max-age=31536000, immutable' });
   if (request.method === 'HEAD') response.end();
   else createReadStream(file).pipe(response);
 }).listen(port, '0.0.0.0', () => console.log(`YapFlow web running on ${port}`));

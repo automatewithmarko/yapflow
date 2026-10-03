@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/yapflow-mark.png" width="88" alt="YapFlow logo">
+  <img src="public/favicon.svg" width="88" alt="YapFlow sound-wave logo">
 </p>
 
 <h1 align="center">YapFlow</h1>
@@ -26,10 +26,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/automatewithmarko/yapflow-releases/releases/download/v0.2.8/yapflow-demo.mp4">
+  <a href="https://yapflow.app/yapflow-demo.mp4">
     <img src="docs/media/demo-poster.png" alt="Watch the YapFlow demo" width="900">
   </a>
 </p>
+
+<p align="center"><a href="https://yapflow.app/yapflow-demo.mp4"><strong>▶ Play the 50-second YapFlow demo</strong></a></p>
 
 ## Your voice stays yours
 
