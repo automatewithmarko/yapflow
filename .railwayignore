@@ -3,6 +3,10 @@ dist
 src-tauri/target
 demo-video/node_modules
 demo-video/out
+demo-video
+src-tauri
+archive
+docs
 .DS_Store
 .release-deploy-*
 
