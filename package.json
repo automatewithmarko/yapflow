@@ -1,0 +1,39 @@
+{
+  "name": "yapflow-desktop",
+  "private": true,
+  "version": "0.2.8",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "start": "node server.mjs",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "desktop:dev": "tauri dev",
+    "desktop:build": "node scripts/macos-release.mjs",
+    "desktop:build:local": "node scripts/macos-build.mjs",
+    "desktop:build:windows": "node scripts/windows-build.mjs",
+    "test:permissions": "node --experimental-strip-types --test tests/permission-flow.test.mjs",
+    "test:analytics": "node --experimental-strip-types --test tests/analytics.test.mjs",
+    "test:versioning": "node --experimental-strip-types --test tests/versioning.test.mjs"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.8.0",
+    "@tauri-apps/plugin-autostart": "^2.5.0",
+    "@tauri-apps/plugin-global-shortcut": "^2.3.0",
+    "@tauri-apps/plugin-opener": "^2.5.0",
+    "@tauri-apps/plugin-process": "^2.4.0",
+    "@tauri-apps/plugin-updater": "^2.13.0",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.8.4",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  }
+}

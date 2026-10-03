@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest an improvement to YapFlow
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: What would this help you do?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposed experience
+      description: Describe what you would expect to see or do.
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy considerations
+      description: Would this require new permissions, network access, or stored data?

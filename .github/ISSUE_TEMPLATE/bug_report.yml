@@ -1,0 +1,36 @@
+name: Bug report
+description: Tell us about something that is not working
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve YapFlow. Never attach private recordings or credentials.
+  - type: input
+    id: version
+    attributes:
+      label: YapFlow version
+      placeholder: 0.2.8
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - macOS
+        - Windows
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the expected result and clear reproduction steps.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Remove transcripts, names, tokens, and other private data first.

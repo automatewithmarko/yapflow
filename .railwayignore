@@ -1,0 +1,11 @@
+node_modules
+dist
+src-tauri/target
+.DS_Store
+.release-deploy-*
+
+# Railway only needs the current installers. Keeping prior local artifacts out
+# of the upload prevents the release upload from timing out.
+release-assets/*
+!release-assets/YapFlow_0.2.8_aarch64.app.tar.gz.sig
+!release-assets/YapFlow_0.2.8_x64-setup.exe.sig

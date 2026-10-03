@@ -1,0 +1,28 @@
+node_modules
+dist
+.DS_Store
+src-tauri/target
+*.download
+archive
+.release-deploy-*
+
+# Generated installers, video renders, and local dependencies
+release-assets/
+demo-video/node_modules/
+demo-video/out/
+
+# Secrets and signing material must never enter source control
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.cer
+*.mobileprovision
+*.key
+*.pem
+*.crt
+secrets/
+
+# Deployment uploads carry only the current release. Historical installers stay
+# local but must not make Railway's source archive time out.

@@ -1,0 +1,13 @@
+{
+  "version": "0.2.8",
+  "notes": "Meeting History entries now open a detailed local-recording view with Play Recording and Show in Folder actions. This release also removes the experimental computer-control feature and its model/setup requirements.",
+  "pub_date": "2026-10-03T11:42:04Z",
+  "downloads": {
+    "mac": "https://github.com/automatewithmarko/yapflow-releases/releases/download/v0.2.8/YapFlow_0.2.8_aarch64.dmg",
+    "windows": "https://github.com/automatewithmarko/yapflow-releases/releases/download/v0.2.8/YapFlow_0.2.8_x64-setup.exe"
+  },
+  "updater": {
+    "darwin-aarch64": "https://github.com/automatewithmarko/yapflow-releases/releases/download/v0.2.8/YapFlow_0.2.8_aarch64.app.tar.gz",
+    "windows-x86_64": "https://github.com/automatewithmarko/yapflow-releases/releases/download/v0.2.8/YapFlow_0.2.8_x64-setup.exe"
+  }
+}
