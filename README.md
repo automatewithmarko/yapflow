@@ -25,13 +25,9 @@
   <img alt="macOS and Windows" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-111827">
 </p>
 
-<p align="center">
-  <a href="https://yapflow.app/watch.html">
-    <img src="docs/media/launch-poster.png" alt="Watch the new 45-second YapFlow film" width="900">
-  </a>
-</p>
+## See YapFlow in action
 
-<p align="center"><a href="https://yapflow.app/watch.html"><strong>▶ Watch the new 45-second YapFlow film</strong></a></p>
+https://github.com/user-attachments/assets/bb18000b-fce2-48fa-9a5d-38d2e0b57449
 
 ## Your voice stays yours
 
