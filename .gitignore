@@ -7,7 +7,9 @@ archive
 .release-deploy-*
 
 # Generated installers, video renders, and local dependencies
-release-assets/
+release-assets/*
+!release-assets/YapFlow_0.2.8_aarch64.app.tar.gz.sig
+!release-assets/YapFlow_0.2.8_x64-setup.exe.sig
 demo-video/node_modules/
 demo-video/out/
 

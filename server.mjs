@@ -77,8 +77,18 @@ createServer((request, response) => {
     return;
   }
   if (rawPath.startsWith('/downloads/')) {
-    const asset = resolve(releaseRoot, rawPath.slice('/downloads/'.length));
+    const requestedName = rawPath.slice('/downloads/'.length);
+    const asset = resolve(releaseRoot, requestedName);
     if (!isInside(releaseRoot, asset) || !existsSync(asset) || !statSync(asset).isFile()) {
+      const hostedDownload = Object.values(release.downloads).find(value => {
+        try { return new URL(value, `${protocol}://${host}`).pathname.split('/').pop() === requestedName; }
+        catch { return false; }
+      });
+      if (hostedDownload) {
+        response.writeHead(302, { location: publicUrl(hostedDownload, protocol, host), 'cache-control': 'no-store' });
+        response.end();
+        return;
+      }
       response.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
       response.end('This YapFlow installer has not been published yet.');
       return;
